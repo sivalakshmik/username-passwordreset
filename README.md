@@ -1,4 +1,4 @@
-assword Reset Web App
+Password Reset Web App
 
 A full-stack web application that allows users to register, login, and reset their password via email verification. Built with React, Bootstrap, Node.js, Express, MongoDB, and Mongoose.
 
