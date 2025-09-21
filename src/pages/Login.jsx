@@ -32,7 +32,11 @@ export default function Login() {
       </form>
       <div className="mt-3 text-center">
         <Link to="/forgot">Forgot Password?</Link>
+         <Link to="/register" className="text-decoration-none">
+          Create an account
+        </Link>
       </div>
     </div>
   );
 }
+
