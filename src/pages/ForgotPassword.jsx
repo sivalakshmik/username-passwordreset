@@ -31,13 +31,10 @@ export default function ForgotPassword() {
         </div>
         <button type="submit" className="btn btn-warning w-100">Send Reset Link</button>
       </form>
-       <div className="mt-3 text-center">
-        <Link to="/">Back to Home</Link>
-      </div>
       {message && <div className="alert alert-info mt-3">{message}</div>}
-      
-    </div>
+      </div>
   );
 }
+
 
 
