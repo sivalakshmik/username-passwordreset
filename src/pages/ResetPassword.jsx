@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate, Link } from "react-router-dom"; // ✅ added Link here
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -29,41 +29,39 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Reset Password
-        </h2>
+    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
+      <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
+        <h2 className="text-center mb-4">Reset Password</h2>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-gray-700 font-medium mb-1">
-              New Password
-            </label>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">New Password</label>
             <input
               type="password"
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors"
-          >
+          <button type="submit" className="btn btn-primary w-100">
             Reset Password
           </button>
         </form>
 
         {message && (
-          <div className="mt-4 text-center text-sm bg-blue-50 text-blue-700 p-2 rounded">
+          <div
+            className={`alert mt-3 text-center ${
+              message.startsWith("✅")
+                ? "alert-success"
+                : message.startsWith("⚠️")
+                ? "alert-warning"
+                : "alert-danger"
+            }`}
+          >
             {message}{" "}
-            <Link
-              to="/login"
-              className="text-blue-600 font-semibold hover:underline"
-            >
+            <Link to="/login" className="fw-bold text-decoration-none text-primary">
               Login
             </Link>
           </div>
