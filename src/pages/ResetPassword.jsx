@@ -13,10 +13,11 @@ const ResetPassword = () => {
     try {
       const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/auth";
       const res = await axios.post(`${API_URL}/reset-password/${token}`, { password });
-      setMessage(res.data.message);
+      setMessage("Password reset successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
-      setMessage(err.response?.data?.message || "Reset failed");
+      const msg = err.response?.data?.message || "Reset failed";
+      setMessage(msg === "Invalid or expired token" ? "This reset link has expired. Please request a new one." : msg);
     }
   };
 
@@ -37,7 +38,7 @@ const ResetPassword = () => {
             Reset Password
           </button>
         </form>
-        {message && <p className="mt-4 text-center text-sm">{message}</p>}
+        {message && <p className="mt-4 text-center text-sm text-gray-700">{message}</p>}
       </div>
     </div>
   );
