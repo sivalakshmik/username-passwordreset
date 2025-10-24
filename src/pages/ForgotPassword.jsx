@@ -23,7 +23,7 @@ const ForgotPassword = () => {
   };
 
   return (
-     <div className="container mt-5" style={{ maxWidth: "400px" }}>
+      <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">Forgot Password</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -44,4 +44,5 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
+
 
