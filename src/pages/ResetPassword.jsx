@@ -30,8 +30,8 @@ const ResetPassword = () => {
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-50">
-      <div className="bg-white shadow-md rounded-lg p-8 w-96">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-gray-800">
+      <div className="bg-blue shadow-md rounded-lg p-8 w-96">
+        <h2 className="text-2xl font-semibold mb-4 text-center text-white-800">
           Reset Password
         </h2>
 
@@ -72,3 +72,4 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
+
