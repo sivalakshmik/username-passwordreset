@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom"; // ✅ added Link here
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -28,7 +28,7 @@ const ResetPassword = () => {
     }
   };
 
-   return (
+  return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100 px-4">
       <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-8">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
@@ -74,7 +74,3 @@ const ResetPassword = () => {
 };
 
 export default ResetPassword;
-
-
-
-
