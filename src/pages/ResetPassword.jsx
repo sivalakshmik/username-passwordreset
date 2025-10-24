@@ -29,47 +29,50 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-50">
-      <div className="bg-blue shadow-md rounded-lg p-8 w-96">
-        <h2 className="text-2xl font-semibold mb-4 text-center text-white-800">
+    return (
+  <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+      <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        Reset Password
+      </h2>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <input
+          type="password"
+          placeholder="Enter new password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-200"
+        >
           Reset Password
-        </h2>
+        </button>
+      </form>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="password"
-            placeholder="Enter new password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition-colors"
-          >
-            Reset Password
-          </button>
-        </form>
-
-        {message && (
-          <p
-            className={`mt-4 text-center text-sm ${
-              message.startsWith("✅")
-                ? "text-green-700 bg-green-50 p-2 rounded"
-                : message.startsWith("⚠️")
-                ? "text-yellow-700 bg-yellow-50 p-2 rounded"
-                : "text-red-700 bg-red-50 p-2 rounded"
-            }`}
-          >
-            {message}
-          </p>
-        )}
-      </div>
+      {message && (
+        <p
+          className={`mt-5 text-center text-sm font-medium ${
+            message.startsWith("✅")
+              ? "text-green-700 bg-green-50 p-2 rounded"
+              : message.startsWith("⚠️")
+              ? "text-yellow-700 bg-yellow-50 p-2 rounded"
+              : "text-red-700 bg-red-50 p-2 rounded"
+          }`}
+        >
+          {message}
+        </p>
+      )}
     </div>
-  );
+  </div>
+);
+
 };
 
 export default ResetPassword;
+
 
