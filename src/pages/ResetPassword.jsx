@@ -11,14 +11,11 @@ const ResetPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ✅ Correct API URL (uses environment variable in Netlify)
       const API_URL =
         process.env.REACT_APP_API_URL || "http://localhost:5000/api/auth";
 
-      // ✅ Post request to backend reset-password route
       await axios.post(`${API_URL}/reset-password/${token}`, { password });
 
-      // ✅ Show success message and redirect
       setMessage("✅ Password reset successful! Redirecting to login...");
       setTimeout(() => navigate("/login"), 2000);
     } catch (err) {
@@ -61,4 +58,17 @@ const ResetPassword = () => {
             className={`mt-4 text-center text-sm ${
               message.startsWith("✅")
                 ? "text-green-700 bg-green-50 p-2 rounded"
-                : message.start
+                : message.startsWith("⚠️")
+                ? "text-yellow-700 bg-yellow-50 p-2 rounded"
+                : "text-red-700 bg-red-50 p-2 rounded"
+            }`}
+          >
+            {message}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ResetPassword;
